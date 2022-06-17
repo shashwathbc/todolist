@@ -19,10 +19,35 @@ const style = {
   p: 4,
 };
 
-export default function ModalComp() {
+export default function ModalComp({save}) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const [task , setTask] = useState('');
+  const [date , setDate] = useState('');
+  const [type , setType] = useState('');
+
+  const handleChange = (e) => {
+      const {name , value} = e.target;
+      if(name === "taskName"){
+        setTask(value)
+      }
+      if(name === "dateName"){
+        setDate(value)
+      }
+      if(name==="typeName"){
+        setType(value)
+      }
+  }
+
+  const handleSave = () =>{
+    let taskObj = {}
+    taskObj["Name"] = task
+    taskObj["Date"] = date
+    taskObj["Type"] = type
+    save(taskObj)
+  }
 
   return (
     <div>
@@ -45,29 +70,33 @@ export default function ModalComp() {
               <Form.Control
                 type="text"
                 placeholder="Breif text for what you want to accomplish"
+                value={task}
+                onChange={handleChange}
+                name ="taskName"
               />
             </Form.Group>
 
             <Form.Group className="mb-3">
               <Form.Label>When do you want to Complete it?</Form.Label>
-              <Form.Control type="date" placeholder="Date in DD//MM/YY" />
+              <Form.Control type="date" placeholder="Date in DD//MM/YY" value={date}   onChange={handleChange} name="dateName"/>
             </Form.Group>
 
             <Form.Group className="mb-3">
               <Form.Label>Tags</Form.Label>
-              <Form.Select aria-label="Default select example">
-                <option value="1">Personal</option>
-                <option value="2">Home</option>
-                <option value="3">Office</option>
+              <Form.Select aria-label="Default select example" value={type}  onChange={handleChange} name="typeName">
+              <option value="info">Select Your Type</option>
+                <option value="personal">Personal</option>
+                <option value="home">Home</option>
+                <option value="office">Office</option>
               </Form.Select>
             </Form.Group>
 
-            <Button variant="outlined" type="submit">
+            <Button variant="outlined" onClick={handleSave}>
               Add
             </Button>
-            <Button variant="outlined" type="submit">
+            <span onClick={handleClose}>
               Cancel
-            </Button>
+            </span>
           </Form>
         </Box>
       </Modal>

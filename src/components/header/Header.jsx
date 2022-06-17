@@ -27,7 +27,7 @@ const Header = () => {
           </Form>
 
           <Button variant="primary" style={{ marginLeft: "40%" }}>
-            <ModalComp />
+            <ModalComp  />
           </Button>
 
           <Avatar style={{ marginLeft: "15px" }} />
