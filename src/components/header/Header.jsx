@@ -1,7 +1,6 @@
 import { Avatar } from "@mui/material";
 import React from "react";
 import { Navbar, Form, Button, Container, FormControl } from "react-bootstrap";
-import ModalComp from "../modal/ModalComp";
 
 const Header = () => {
   return (
@@ -25,12 +24,8 @@ const Header = () => {
             />
             <Button variant="outline-success">Search</Button>
           </Form>
-
-          <Button variant="primary" style={{ marginLeft: "40%" }}>
-            <ModalComp  />
-          </Button>
-
-          <Avatar style={{ marginLeft: "15px" }} />
+        <Avatar style={{ marginLeft: "25%" }} />
+        <span style={{marginLeft: "10px"}}>Shashwath BC</span>
         </Navbar.Collapse>
       </Container>
     </Navbar>

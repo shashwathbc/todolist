@@ -20,31 +20,33 @@ const SideBar = () => {
             <span>5</span>
           </li>
           </Link>
+          <Link to="/overdue" className="link">
           <li className="sidebarListItem">
              Overdue
              <span>5</span>
           </li>
-
+</Link>
           <li className="sidebarListItem">
              ---------------
             </li>
-
-          <li className="sidebarListItem">
+           <Link to="/personal" className="link">
+           <li className="sidebarListItem">
             Personal
             <span>5</span>
-          </li>
+          </li>  
+           </Link>
+           <Link to="/home" className="link">
           <li className="sidebarListItem">
             Home
             <span>5</span>
           </li>
+          </Link>
+          <Link to="/office" className="link">
           <li className="sidebarListItem">
             Office
             <span>5</span>
           </li>
-          <li className="sidebarListItem">
-            Travel
-            <span>5</span>
-          </li>
+          </Link>
         </ul>
       </div>
     </div>
